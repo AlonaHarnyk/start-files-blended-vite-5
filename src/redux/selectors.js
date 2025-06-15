@@ -1,0 +1,1 @@
+export const getBaseCurrency = state => state.currency.baseCurrency;

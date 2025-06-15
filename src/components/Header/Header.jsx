@@ -5,7 +5,12 @@ import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
 
+import { useSelector } from 'react-redux';
+
+import {getBaseCurrency} from '../../redux/selectors'
+
 const Header = () => {
+  const baseCurrency = useSelector(getBaseCurrency)
   const addActive = ({ isActive }) => (isActive ? styles.active : styles.link);
   return (
     <>
@@ -27,7 +32,7 @@ const Header = () => {
             </ul>
           </nav>
         </div>
-       //✔ Add base currency here !!!
+        {baseCurrency && <p> Your base currency: {baseCurrency}</p>}
       </header>
       <Suspense fallback={null}>
         <Outlet />
